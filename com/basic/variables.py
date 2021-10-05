@@ -45,6 +45,39 @@ result = '5' * 10
 print(result)
 # prints 5 in 10 times
 
+# Object Identity
+# Once an object is created a unique Id is assigned to it, this unique id will not be assigned to another object.
+# Once an object’s reference count drops to zero and it is garbage collected,
+# and the unique id is made available and may be used again.
+
+# The built-in Python function id() returns an object’s integer identifier.
+# Using the id() function, you can verify that two variables indeed point to the same object:
+
+n = 300
+m = n
+print(id(n))
+print(id(m))
+# the 2 print above will print the same value, because both n and m is referencing to the same object
+
+m = 400
+print(id(m))
+# the value changes since m has been reassigned to another object.
+
+print("================")
+b = 389
+c = 389
+print(id(b))
+print(id(c))
+
+# You might be thinking that 2 different object is created and hence they should have 2 different Ids but
+# Here, b and c are separately assigned to integer objects having value 400.
+# But in this case, id(b) and id(c) are identical!
+# For purposes of optimization, the interpreter creates objects for the integers
+# and its smart enough to know the values that has been create before
+# and then reuses them during program execution. Thus, when you assign separate
+# variables to an integer value that is already created, they will actually reference the same object.
+
 # RESOURCES TO LEARN MORE ON PYTHON VARIABLES
 # https://realpython.com/python-variables/
-# 
+# https://www.guru99.com/variables-in-python.html
+
